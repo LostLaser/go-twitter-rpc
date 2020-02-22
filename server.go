@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"net/rpc"
 
-	"github.com/LostLaser/go-rpc-example/message"
+	"github.com/LostLaser/go-twitter-rpc/controller"
 )
 
 func startServer(port string) {
-	task := new(message.Task)
+	task := new(controller.Task)
 	err := rpc.Register(task)
 
 	if err != nil {
