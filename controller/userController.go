@@ -6,7 +6,7 @@ import (
 
 // AddUser adds a new user to the collection of users
 func (t *Task) AddUser(u user.User, reply *user.User) error {
-	user.AddUser(u)
+	user.Add(u)
 
 	return nil
 }

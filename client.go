@@ -9,16 +9,20 @@ import (
 	"time"
 
 	"github.com/LostLaser/go-twitter-rpc/message"
+	"github.com/LostLaser/go-twitter-rpc/user"
 )
 
 var port string
+var newUser user.User
 
-func startClient(inpPort string) {
+func startClient(inpPort string, username string) {
 	if len(inpPort) > 0 {
 		port = inpPort
 	} else {
 		port = ":8080"
 	}
+
+	registerUser(username)
 
 	// continually read input from console
 	for {
@@ -35,6 +39,15 @@ func getConnection() *rpc.Client {
 	}
 
 	return client
+}
+
+// registerUser will attempt to add a new user to the rpc server
+func registerUser(username string) {
+	newUser := user.User{
+		NickName: username,
+	}
+	var reply bool
+	getConnection().Call("Task.AddUser", newUser, &reply)
 }
 
 // readInput will read in a line of text from the terminal
