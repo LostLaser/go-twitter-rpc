@@ -67,6 +67,8 @@ func switchInput(input string) {
 		handleRead()
 	case "write":
 		handleWrite()
+	case "users":
+		handleUsers()
 	default:
 		log.Println("Invalid option")
 	}
@@ -99,4 +101,11 @@ func handleWrite() {
 			getConnection().Call("Task.SendMessage", msg, &reply)
 		}
 	}
+}
+
+func handleUsers() {
+	msg := message.Message{}
+	var reply *[]message.Message
+	getConnection().Call("Task.GetMyMessages", msg, &reply)
+	log.Println(reply)
 }

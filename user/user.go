@@ -17,8 +17,8 @@ type User struct {
 	SentMessages []message.Message
 }
 
-// AddFollower appends a new entry to the users' following list
-func AddFollower(usr *User, target *User) error {
+// AddFollower appends a new entry to a users' following list
+func (usr *User) AddFollower(target *User) error {
 	if _, found := usr.Following[target.ID]; !found {
 		usr.Following[target.ID] = target
 	} else {
@@ -28,8 +28,8 @@ func AddFollower(usr *User, target *User) error {
 	return nil
 }
 
-// RemoveFollowerByID removes a user by ID
-func RemoveFollowerByID(usr *User, target *User) error {
+// RemoveFollowerByID removes a follower from a user object by ID
+func (usr *User) RemoveFollowerByID(target *User) error {
 	if _, found := usr.Following[target.ID]; found {
 		delete(usr.Following, target.ID)
 	} else {
@@ -37,4 +37,14 @@ func RemoveFollowerByID(usr *User, target *User) error {
 	}
 
 	return nil
+}
+
+// SendMessage appends a message to the calling user's SentMessages
+func (usr *User) SendMessage(msg message.Message) {
+	usr.SentMessages = append(usr.SentMessages, msg)
+}
+
+// ReadMessages returns a list of all messages that the calling user has sent
+func (usr *User) ReadMessages() []message.Message {
+	return usr.SentMessages
 }

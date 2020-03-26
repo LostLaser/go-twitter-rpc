@@ -7,7 +7,7 @@ import (
 
 func main() {
 	service := flag.String("service", "", "The service that will be ran, should be one of either client or server")
-	user := flag.String("user", "", "The username of a connecting client")
+	user := flag.String("u", "", "The username of a connecting client")
 	port := ":8080"
 
 	flag.Parse()

@@ -5,9 +5,6 @@ import "errors"
 // Messages contains all current messages
 var Messages []Message
 
-// MsgTask is a method type for RPC
-type MsgTask int
-
 // Send will append the message to the message array
 func Send(msg Message) error {
 	Messages = append(Messages, msg)
