@@ -1,8 +1,6 @@
 package controller
 
-import (
-	"github.com/LostLaser/go-twitter-rpc/user"
-)
+import "github.com/LostLaser/go-twitter-rpc/server/user"
 
 // AddUser adds a new user to the collection of users
 func (t *Task) AddUser(u user.User, reply *user.User) error {

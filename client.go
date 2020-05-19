@@ -8,8 +8,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/LostLaser/go-twitter-rpc/message"
-	"github.com/LostLaser/go-twitter-rpc/user"
+	"github.com/LostLaser/go-twitter-rpc/server/message"
+	"github.com/LostLaser/go-twitter-rpc/server/user"
 )
 
 var port string

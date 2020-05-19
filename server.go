@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"net/rpc"
 
-	"github.com/LostLaser/go-twitter-rpc/controller"
+	"github.com/LostLaser/go-twitter-rpc/server/controller"
 )
 
 func startServer(port string) {
